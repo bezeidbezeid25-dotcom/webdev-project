@@ -1,0 +1,5 @@
+<?php
+//25.0.2.0 FMK/Langue.php GF
+//VersionVI: 01A250083n
+//(c) 2005-2012 PC SOFT - Release
+ define('FMK_Langue',true); function F1ac3f040($sNom) { if (!defined('FMK_Langue_Constante')) { FMK_Charge('Ressources/Traduction.php',false,PHPVERSION_7); FMK_Charge('FMK/Langue/Alphabet.php',false); define('FMK_Langue_Constante',true); } $gclEnvLangue =& FMK_Langue_Alphabet(); if (!is_string($sNom)) return $sNom; global $gtabTraductionRessources; if (isset($gtabTraductionRessources) && array_key_exists($gclEnvLangue->nNationFmk,$gtabTraductionRessources) && array_key_exists($sNom,$gtabTraductionRessources[$gclEnvLangue->nNationFmk])) { return Fd7624002($gtabTraductionRessources[$gclEnvLangue->nNationFmk][$sNom]); } if (isset($gtabTraductionRessources) && array_key_exists(NATION_ANGLAIS,$gtabTraductionRessources) && array_key_exists($sNom,$gtabTraductionRessources[NATION_ANGLAIS])) { return Fd7624002($gtabTraductionRessources[NATION_ANGLAIS][$sNom]); } if (defined($sNom)) { return Fd7624002( constant($sNom) ); } return $sNom; } ?>
